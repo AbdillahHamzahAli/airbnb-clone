@@ -12,6 +12,10 @@ async function getData({
 }: {
   searchParams?: {
     filter?: string;
+    country?: string;
+    guest?: string;
+    room?: string;
+    bathroom?: string;
   };
   userId: string | undefined;
 }) {
@@ -21,6 +25,17 @@ async function getData({
       addedDescription: true,
       addedLocation: true,
       categoryName: searchParams?.filter ?? undefined,
+      guests: {
+        gte: searchParams?.guest ?? undefined,
+      },
+      bedrooms: {
+        gte: searchParams?.room ?? undefined,
+      },
+
+      bathrooms: {
+        gte: searchParams?.bathroom ?? undefined,
+      },
+      country: searchParams?.country ?? undefined,
     },
     select: {
       id: true,
@@ -43,6 +58,10 @@ export default function Home({
 }: {
   searchParams?: {
     filter?: string;
+    country?: string;
+    guest?: string;
+    room?: string;
+    bathroom?: string;
   };
 }) {
   return (
@@ -60,6 +79,10 @@ async function ShowItems({
 }: {
   searchParams?: {
     filter?: string;
+    country?: string;
+    guest?: string;
+    room?: string;
+    bathroom?: string;
   };
 }) {
   const { getUser } = getKindeServerSession();
