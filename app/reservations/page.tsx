@@ -2,7 +2,7 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { ListingCard } from "../components/ListingCard";
 import { NoItems } from "../components/NoItems";
 import prisma from "../lib/db";
-import { redirect } from "next/dist/server/api-utils";
+import { redirect } from "next/navigation";
 
 async function getData(userId: string) {
   const data = await prisma.reservation.findMany({

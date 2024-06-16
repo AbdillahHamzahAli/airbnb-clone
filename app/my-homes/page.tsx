@@ -1,6 +1,6 @@
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import prisma from "../lib/db";
-import { redirect } from "next/dist/server/api-utils";
+import { redirect } from "next/navigation";
 import { ListingCard } from "../components/ListingCard";
 import { NoItems } from "../components/NoItems";
 
